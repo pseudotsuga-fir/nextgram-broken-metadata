@@ -1,4 +1,17 @@
+import type { Metadata, ResolvingMetadata } from "next";
 import { Modal } from "./modal";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: { id: string };
+}): Promise<Metadata> {
+  const id = (await params).id;
+
+  return {
+    title: `Photo ${id} intercepted`,
+  };
+}
 
 export default async function PhotoModal({
   params,
